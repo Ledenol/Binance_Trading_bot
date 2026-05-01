@@ -42,7 +42,7 @@ trading_bot/
 ### 1. Get Testnet API Credentials
 
 1. Go to [https://testnet.binancefuture.com](https://testnet.binancefuture.com)
-2. Log in with your **GitHub account** (no KYC, no real money)
+2. Log in with your **Google** (no KYC, no real money)
 3. Click **API Key** at the top → credentials are auto-generated
 4. Copy your **API Key** and **Secret Key**
 

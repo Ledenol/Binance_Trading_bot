@@ -144,3 +144,33 @@ All API requests, responses, and errors are written to `logs/trading_bot.log`.
 - Supported symbols: `BTCUSDT`, `ETHUSDT`, `BNBUSDT`, `XRPUSDT`, `SOLUSDT` — extend `VALID_SYMBOLS` in `validators.py` to add more
 - LIMIT-type orders use `timeInForce=GTC` by default
 - Credentials loaded from environment variables only — never hardcoded
+---
+
+## Bonus Features
+
+All three optional bonus features from the task have been implemented.
+
+### 1. Extra Order Types
+
+In addition to MARKET and LIMIT, the bot supports:
+
+| Type | Description |
+|---|---|
+| STOP_MARKET | Triggers a market order when price hits the stop level |
+| STOP_LIMIT | Triggers a limit order when price hits the stop level |
+| TAKE_PROFIT_MARKET | Closes position at a profit target using a market order |
+| TAKE_PROFIT | Closes position at a profit target using a limit order |
+
+Implemented across `validators.py` (type rules and stop price validation), `client.py` (stopPrice parameter passed to API), and `cli.py` (stop price prompt appears only when the selected order type requires it).
+
+### 2. Enhanced CLI UX
+
+- Arrow-key dropdown menus via `questionary` — no typing required for symbol, side, or order type
+- Live price fetched from the API and displayed the moment you select a symbol
+- Order types shown with plain-English descriptions, not just raw type names
+- Order preview panel shown before confirming — shows all parameters before anything is sent
+- Full colour terminal output via `rich` — results, errors, and status all colour coded
+
+### 3. Account Balance Viewer
+
+Accessible from the main menu under **View account balance**. Fetches your testnet account from the API and displays a formatted table showing wallet balance, margin balance, and unrealised PnL per asset, with PnL colour coded green or red.
